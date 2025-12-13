@@ -26,7 +26,7 @@ body {
 }
 
 @keyframes fall {
-  0% { transform: translateY(-10vh); opacity: 1; }
+  0% { transform: translateY(-100px); opacity: 1; } /* از بالای بالا */
   100% { transform: translateY(110vh); opacity: 0; }
 }
 
@@ -92,10 +92,10 @@ setInterval(() => {
   flower.style.left = Math.random() * 100 + "vw";
   flower.style.width = (24 + Math.random() * 16) + "px";
   flower.style.height = "auto";
-  flower.style.animationDuration = (3 + Math.random() * 3) + "s";
+  flower.style.animationDuration = (5 + Math.random() * 4) + "s"; /* حرکت آرام تر */
   document.body.appendChild(flower);
-  setTimeout(() => flower.remove(), 5000);
-}, 150);
+  setTimeout(() => flower.remove(), 9000); /* زمان بیشتر برای کامل شدن حرکت */
+}, 200); /* فاصله کمتر بین گل‌ها، حرکت نرم‌تر */
 
 function showMessage() {
   const btn = document.getElementById("magicButton");
