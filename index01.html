@@ -26,7 +26,7 @@ body {
 }
 
 @keyframes fall {
-  0% { transform: translateY(-100px); opacity: 1; } /* از بالای بالا */
+  0% { transform: translateY(-150px); opacity: 1; }
   100% { transform: translateY(110vh); opacity: 0; }
 }
 
@@ -90,12 +90,14 @@ setInterval(() => {
   flower.className = "heart";
   flower.src = flowerUrl;
   flower.style.left = Math.random() * 100 + "vw";
-  flower.style.width = (24 + Math.random() * 16) + "px";
+  const size = 24 + Math.random() * 16;
+  flower.style.width = size + "px";
   flower.style.height = "auto";
-  flower.style.animationDuration = (5 + Math.random() * 4) + "s"; /* حرکت آرام تر */
+  const duration = 12 + Math.random() * 6;
+  flower.style.animationDuration = duration + "s";
   document.body.appendChild(flower);
-  setTimeout(() => flower.remove(), 9000); /* زمان بیشتر برای کامل شدن حرکت */
-}, 200); /* فاصله کمتر بین گل‌ها، حرکت نرم‌تر */
+  setTimeout(() => flower.remove(), duration * 1000);
+}, 400);
 
 function showMessage() {
   const btn = document.getElementById("magicButton");
