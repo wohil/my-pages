@@ -1,1 +1,114 @@
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<title>🌹 Surprise Button</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  margin: 0;
+  overflow: hidden;
+  background: #000;
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+  box-sizing: border-box;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.heart {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  pointer-events: none;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-10vh); opacity: 1; }
+  100% { transform: translateY(110vh); opacity: 0; }
+}
+
+#magicButton {
+  padding: 25px 60px;
+  font-size: 28px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(255, 255, 255, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.15);
+  text-align: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+  white-space: normal;
+  word-break: break-word;
+  max-width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  margin: auto;
+}
+
+#magicButton:hover {
+  box-shadow: 0 12px 48px rgba(255, 255, 255, 0.3), inset 0 0 25px rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+}
+
+#magicButton::-webkit-scrollbar {
+  width: 8px;
+}
+#magicButton::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.3);
+  border-radius: 4px;
+}
+#magicButton::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.05);
+}
+
+@media (max-width: 768px) {
+  body { padding: 30px; }
+  #magicButton { font-size: 24px; padding: 20px 50px; max-height: 80vh; }
+}
+@media (max-width: 480px) {
+  body { padding: 40px; }
+  #magicButton { font-size: 20px; padding: 16px 30px; max-height: 70vh; }
+}
+</style>
+</head>
+<body>
+
+<button id="magicButton" onclick="showMessage()">Нажмите</button>
+
+<script>
+const flowerUrl = "https://attic.sh/i6g81jkzkdgzi63uro3h3hbfh6f6";
+
+setInterval(() => {
+  const flower = document.createElement("img");
+  flower.className = "heart";
+  flower.src = flowerUrl;
+  flower.style.left = Math.random() * 100 + "vw";
+  flower.style.width = (24 + Math.random() * 16) + "px";
+  flower.style.height = "auto";
+  flower.style.animationDuration = (3 + Math.random() * 3) + "s";
+  document.body.appendChild(flower);
+  setTimeout(() => flower.remove(), 5000);
+}, 150);
+
+function showMessage() {
+  const btn = document.getElementById("magicButton");
+  btn.innerHTML = "Твоя улыбка; самое прекрасное, что я когда-либо видел в своей жизни, Aruzhan.";
+  btn.style.fontSize = "24px";
+  btn.style.lineHeight = "1.5";
+  btn.style.background = "rgba(255, 255, 255, 0.1)";
+  btn.style.color = "#fff";
+  btn.style.boxShadow = "0 12px 48px rgba(255, 255, 255, 0.3), inset 0 0 25px rgba(255, 255, 255, 0.25)";
+  btn.style.backdropFilter = "blur(15px)";
+  btn.style.webkitBackdropFilter = "blur(15px)";
+}
+</script>
+
+</body>
+</html>
